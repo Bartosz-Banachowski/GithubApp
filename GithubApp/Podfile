@@ -6,16 +6,16 @@ target 'GithubApp' do
   use_frameworks!
 
   # Pods for GithubApp
+  pod 'RealmSwift', '~> 4.4.1'
   pod 'Alamofire', '~> 5.1'
-  pod 'RealmSwift'
 
-  target 'GithubAppTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'GithubAppUITests' do
-    # Pods for testing
-  end
+#  target 'GithubAppTests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
+#
+#  target 'GithubAppUITests' do
+#    # Pods for testing
+#  end
 
 end

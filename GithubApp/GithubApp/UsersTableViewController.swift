@@ -9,7 +9,6 @@
 import UIKit
 
 class UsersTableViewController: UITableViewController, UISearchBarDelegate {
-
     @IBOutlet weak var userTableView: UITableView!
     
     private let searchController = UISearchController(searchResultsController: nil)
@@ -22,12 +21,12 @@ class UsersTableViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         
         userTableView.tableFooterView = UIView()
+        setupStartupView()
         setupSearchBar()
         setupBackgroundView()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        usersViewModel.users.removeAll()
         guard let textToSearch = searchBar.text, !textToSearch.isEmpty else {
             return
         }
@@ -41,11 +40,11 @@ class UsersTableViewController: UITableViewController, UISearchBarDelegate {
         }
     }
 
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        usersViewModel.users.removeAll()
-    }
-
     // MARK: - view setup func
+    private func setupStartupView() {
+        usersViewModel.fetchData()
+    }
+    
     private func setupSearchBar() {
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search user"

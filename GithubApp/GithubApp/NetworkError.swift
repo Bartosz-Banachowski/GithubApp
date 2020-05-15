@@ -9,6 +9,7 @@
 import Foundation
 
 enum NetworkError: Error {
-    case failure
+    case connectionFailure
+    case responseFailure
     case success
 }

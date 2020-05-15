@@ -15,9 +15,13 @@ struct DataService {
     func requestUserData(_ user: String, completion: @escaping (Response?, NetworkError?) -> ()) {
         let URL = "\(baseURL)\(user)"
 
+        if !isConnected() {
+            completion(nil, .connectionFailure)
+            return
+        }
         AF.request(URL).responseJSON { (response) in
             if response.error != nil {
-                completion(nil, .failure)
+                completion(nil, .responseFailure)
                 return
             }
             
@@ -30,5 +34,9 @@ struct DataService {
                 }
             }
         }
+    }
+    
+    private func isConnected() -> Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
     }
 }

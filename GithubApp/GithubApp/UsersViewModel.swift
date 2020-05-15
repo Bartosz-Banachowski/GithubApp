@@ -33,14 +33,18 @@ class UsersViewModel: NSObject {
         if isExpired {
             deleteExpiredUsers()
             userService.requestUserData(user) { [weak self] (response, error) in
-                if case .failure = error {
+                if case .responseFailure = error {
                     print(error.debugDescription)
                     return
                 }
-                
+                if case .connectionFailure = error {
+                    print("Connection interupted")
+                    return
+                }
                 guard let data = response else {
                     return
                 }
+
                 for item in data.items {
                     let user = User(login: item.login, imgURL: item.avatarURL)
                     if !(self?.users.contains(user) ?? false) {

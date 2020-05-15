@@ -11,7 +11,8 @@ import Foundation
 class UsersViewModel: NSObject {
     
     private var userService = DataService()
-    var users: data = [] {
+    var count: Int = 0
+    var users: [Item] = [] {
         didSet {
             self.finishSetupView?()
         }
@@ -19,13 +20,18 @@ class UsersViewModel: NSObject {
     
     var finishSetupView: (() -> Void)?
 
-    func getUsersData() {
-        userService.requestUsersData { (response, error) in
-            if let err = error {
-                print(err)
+    func getUserData(for user: String) {
+        userService.requestUserData(user) { [weak self] (response, error) in
+            if case .failure = error {
+                print(error.debugDescription)
                 return
             }
-            self.users = response!
+            
+            guard let data = response else {
+                return
+            }
+            self?.users.append(contentsOf: data.items)
+            self?.count = data.totalCount
         }
     }
 }

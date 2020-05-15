@@ -10,23 +10,21 @@ import Foundation
 import Alamofire
 
 struct DataService {
-    private let baseURL = "https://api.github.com/users?"
+    private let baseURL = "https://api.github.com/search/users?q="
     
-    func requestUsersData(completion: @escaping (data?, Error?) -> ()) {
-        let URL = "\(baseURL)"
+    func requestUserData(_ user: String, completion: @escaping (Response?, NetworkError?) -> ()) {
+        let URL = "\(baseURL)\(user)"
 
         AF.request(URL).responseJSON { (response) in
-            if let error = response.error {
-                completion(nil, error)
+            if response.error != nil {
+                completion(nil, .failure)
                 return
             }
             
             if let jsonData = response.data {
                 do {
-                    print(jsonData)
-                    let usersData = try JSONDecoder().decode(data.self, from: jsonData)
-                    print(usersData)
-                    completion(usersData, nil)
+                    let usersData = try JSONDecoder().decode(Response.self, from: jsonData)
+                    completion(usersData, .success)
                 } catch {
                     print("Unexpected problem during fetching users data: \(error)")
                 }

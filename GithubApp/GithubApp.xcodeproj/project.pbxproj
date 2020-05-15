@@ -24,6 +24,7 @@
 		9443D307246E55D800E91A0D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9443D306246E55D800E91A0D /* Database.swift */; };
 		9443D309246E573D00E91A0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9443D308246E573D00E91A0D /* User.swift */; };
 		9443D30B246E665300E91A0D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9443D30A246E665300E91A0D /* Constants.swift */; };
+		9443D30D246EA2EF00E91A0D /* UIImageView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9443D30C246EA2EF00E91A0D /* UIImageView+Load.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		9443D306246E55D800E91A0D /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		9443D308246E573D00E91A0D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9443D30A246E665300E91A0D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9443D30C246EA2EF00E91A0D /* UIImageView+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Load.swift"; sourceTree = "<group>"; };
 		BF71E01C590AF4D2A4FB91CB /* Pods_GithubApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFCE8C05D966A5DEB57B6731 /* Pods-GithubApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubApp.debug.xcconfig"; path = "Target Support Files/Pods-GithubApp/Pods-GithubApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 				9403E6D12466E68000F5901A /* View */,
 				9403E6D22466E68600F5901A /* ViewModel */,
 				9403E6D42466E6FF00F5901A /* Service */,
+				9443D30E246EA2F500E91A0D /* Extensions */,
 				9443D303246E2F8400E91A0D /* Errors */,
 				9403E69F2466E27500F5901A /* AppDelegate.swift */,
 				9403E6A12466E27500F5901A /* SceneDelegate.swift */,
@@ -230,6 +233,14 @@
 				9443D304246E2FA100E91A0D /* NetworkError.swift */,
 			);
 			name = Errors;
+			sourceTree = "<group>";
+		};
+		9443D30E246EA2F500E91A0D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9443D30C246EA2EF00E91A0D /* UIImageView+Load.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9443D30D246EA2EF00E91A0D /* UIImageView+Load.swift in Sources */,
 				9443BA96246BB1F800385444 /* DataService.swift in Sources */,
 				9443D30B246E665300E91A0D /* Constants.swift in Sources */,
 				9443D305246E2FA100E91A0D /* NetworkError.swift in Sources */,

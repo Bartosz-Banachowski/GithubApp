@@ -13,7 +13,8 @@ class UsersTableViewController: UITableViewController, UISearchBarDelegate {
     
     private let searchController = UISearchController(searchResultsController: nil)
     private let usersViewModel = UsersViewModel()
-    
+    private var selectedUser: User?
+
     private var previousRun = Date()
     private let minInterval = 0.05
 
@@ -24,6 +25,13 @@ class UsersTableViewController: UITableViewController, UISearchBarDelegate {
         setupStartupView()
         setupSearchBar()
         setupBackgroundView()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is DetailsViewController && segue.identifier == "detailsUserSegue" {
+            let vc = segue.destination as? DetailsViewController
+            vc?.userDetails = usersViewModel.users[userTableView.indexPathForSelectedRow!.row]
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

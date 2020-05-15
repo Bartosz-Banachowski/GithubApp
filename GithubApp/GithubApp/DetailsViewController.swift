@@ -8,6 +8,12 @@
 
 import UIKit
 
-class DetailsViewController: NSObject {
+class DetailsViewController: UIViewController {
 
+    @IBOutlet weak var avatarImgView: UIImageView!
+    var userDetails: User?
+    
+    override func viewDidLoad() {
+        avatarImgView.loadFromURL(url: userDetails?.imgURL)
+    }
 }

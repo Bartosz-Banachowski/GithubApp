@@ -24,7 +24,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="JN8-rd-usz" kind="show" id="eaY-kb-kr1"/>
+                                    <segue destination="JN8-rd-usz" kind="show" identifier="detailsUserSegue" id="eaY-kb-kr1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="1701.449275362319" y="136.60714285714286"/>
         </scene>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="6ex-h2-pew">
             <objects>
-                <viewController id="JN8-rd-usz" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" id="JN8-rd-usz" customClass="DetailsViewController" customModule="GithubApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S1y-ci-bSP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,6 +130,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="7lN-i5-7VP"/>
+                    <connections>
+                        <outlet property="avatarImgView" destination="xWI-5b-E89" id="FNK-5D-elM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vfn-Eg-AJc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
